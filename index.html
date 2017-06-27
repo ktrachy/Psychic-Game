@@ -21,12 +21,20 @@
     <p>
         <h1><span id="one">_ </span><span id="two"> _</span><span id="three"> _</span><span id="four"> _</span><span id="five"> _</span><span id="six"> _</span><span id="seven"> _</span></h1></p>
     <script>
+    var play = confirm('Would you like to play a game?');
     var wins = 0;
     var losses = 0;
     var triesremaining = 7;
     var letter = ["L", "I", "N", "C", "O", "L", "N"];
     var responses = [];
 
+    // Check if you want to play or not.
+
+    if (!play) {
+
+        window.location = 'http://www.losers.org/';
+
+    }
 
     // Displaying the remaining tries
 
@@ -48,11 +56,9 @@
 
             triesremaining--
 
-        } else {
-
-            //stop
-
         }
+
+
 
         // This is where we track if it's any of the target letters.  It updates the appropriate id and fills out the word making the ___ disappear.
 
@@ -98,13 +104,13 @@
 
 
 
-
-
             document.getElementById("idwins").innerHTML = wins;
             document.getElementById("idlosses").innerHTML = losses;
             document.getElementById("idresponses").innerHTML = responses;
             document.getElementById("idguessesleft").innerHTML = triesremaining;
 
+
+        } else {
 
 
             losses++
@@ -112,7 +118,30 @@
             document.getElementById("idlosses").innerHTML = losses;
             document.getElementById("idresponses").innerHTML = responses;
             document.getElementById("idguessesleft").innerHTML = triesremaining;
+
+
+
+
         }
+
+
+
+        // if (wins == 7) {
+        //     window.location = 'win.html';
+
+        // }
+
+        // if (triesremaing == 0) {
+        //     window.location = 'lose.html';
+        // }
+
+
+
+
+
+
+
+
 
     };
     </script>
