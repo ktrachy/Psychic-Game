@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="author" content="Kirk Trachy">
     <meta name="description" content="Kirk Trachy's Psychic Game">
-    <link type="text/javascript" src="./assets/javascript/game.js">
+    <script src="./assets/javascript/game.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="./assets/css/style.css" rel="stylesheet">
 </head>
@@ -23,125 +23,6 @@
             <!-- This lays down the _ _ _ _ _ _ _ and when the letter is identified overwrites the id with the appropriate win value. -->
             <p>
                 <h1><span id="one">_ </span><span id="two"> _</span><span id="three"> _</span><span id="four"> _</span><span id="five"> _</span><span id="six"> _</span><span id="seven"> _</span></h1></p>
-            <!-- Begin script here -->
-            <script>
-            var play = confirm('Would you REALLY like to play a game?');
-            var wins = 0;
-            var losses = 0;
-            var triesremaining = 7;
-            var letter = ["L", "I", "N", "C", "O", "L", "N"];
-            var responses = [];
-
-            // Check if you want to play or not.
-
-            if (!play) {
-
-                window.location = 'losebeforeyoustart.html';
-
-            }
-
-            // Displaying the remaining tries
-
-            document.getElementById("idguessesleft").innerHTML = triesremaining;
-
-
-            // Trapping each key stroke
-
-            document.onkeyup = function(event) {
-
-                // Checking the key to make sure it is one of the approved characters and pushing it into the responses array
-
-                var key = String.fromCharCode(event.keyCode).toUpperCase();
-                responses.push(key);
-
-                if (key === "a" || key === "b" || key === "c" || key === "d" || key === "e" || key === "f" || key === "g" || key === "h" || key === "i" || key === "j" || key === "k" || key === "l" || key === "m" || key === "n" || key === "o" || key === "p" || key === "q" || key === "r" || key === "s" || key === "t" || key === "u" || key === "v" || key === "w" || key === "x" || key === "y" || key === "z" || key === "A" || key === "B" || key === "C" || key === "D" || key === "E" || key === "F" || key === "G" || key === "H" || key === "I" || key === "J" || key === "K" || key === "L" || key === "M" || key === "N" || key === "O" || key === "P" || key === "Q" || key === "R" || key === "S" || key === "T" || key === "U" || key === "V" || key === "W" || key === "X" || key === "Y" || key === "Z" || key === "1" || key === "2" || key === "3" || key === "4" || key === "5" || key === "6" || key === "7" || key === "8" || key === "9" || key === "0") {
-
-                    // This reduces the tries remaining by one each time you've selected a letter.
-
-                    triesremaining--
-                    if (triesremaining === 0) {
-                        window.location.assign("lose.html")
-                    }
-
-                }
-
-
-
-                // This is where we track if it's any of the target letters.  It updates the appropriate id and fills out the word making the ___ disappear.
-
-                if (key === letter[0] || key === letter[1] || key === letter[2] || key === letter[3] || key === letter[4] || key === letter[5] || key === letter[6] || key === letter[7]) {
-
-
-                    if (key === letter[0]) {
-                        document.getElementById("one").innerHTML = letter[0];
-                        wins++;
-                    }
-
-                    if (key === letter[1]) {
-                        document.getElementById("two").innerHTML = letter[1];
-                        wins++;
-                    }
-
-                    if (key === letter[2]) {
-                        document.getElementById("three").innerHTML = letter[2];
-                        wins++;
-                    }
-
-                    if (key === letter[3]) {
-                        document.getElementById("four").innerHTML = letter[3];
-                        wins++;
-                    }
-
-                    if (key === letter[4]) {
-                        document.getElementById("five").innerHTML = letter[4];
-                        wins++;
-                    }
-
-                    if (key === letter[5]) {
-                        document.getElementById("six").innerHTML = letter[5];
-                        wins++;
-                    }
-
-                    if (key === letter[6]) {
-                        document.getElementById("seven").innerHTML = letter[6];
-                        wins++;
-                    }
-
-                    // This is providing feedback that you hit a correct letter and increments up the number of wins
-
-
-
-                    document.getElementById("idwins").innerHTML = wins;
-                    document.getElementById("idlosses").innerHTML = losses;
-                    document.getElementById("idresponses").innerHTML = responses;
-                    document.getElementById("idguessesleft").innerHTML = triesremaining;
-
-
-
-
-                    if (wins === 7) {
-                        window.location.assign("win.html")
-                    }
-
-
-
-                } else {
-
-
-                    losses++;
-                    document.getElementById("idwins").innerHTML = wins;
-                    document.getElementById("idlosses").innerHTML = losses;
-                    document.getElementById("idresponses").innerHTML = responses;
-                    document.getElementById("idguessesleft").innerHTML = triesremaining;
-
-
-
-
-                }
-
-
-            };
-            </script>
         </div>
     </div>
 </body>
